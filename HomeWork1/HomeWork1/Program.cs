@@ -10,7 +10,7 @@ namespace Modul2
     {
         static void Main(string[] args)
         {
-            MainScreen mainScreen = new MainScreen(10, 10);
+            MainScreen mainScreen = new MainScreen(15, 15);
 
             mainScreen.Run();
         }
