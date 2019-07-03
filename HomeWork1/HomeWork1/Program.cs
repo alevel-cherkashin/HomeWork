@@ -10,7 +10,7 @@ namespace Modul2
     {
         static void Main(string[] args)
         {
-            MainScreen mainScreen = new MainScreen(10, 10);
+            MainScreen mainScreen = new MainScreen(10, 15);
 
             mainScreen.Run();
         }
@@ -32,7 +32,7 @@ namespace Modul2
         public MainScreen(int line, int column)
         {
             rnd = new Random();
-            point = new Point[column];
+            point = new Point[line];
             Line = line;
             Column = column;
 
@@ -60,7 +60,7 @@ namespace Modul2
         {
             ScreenArray[FocusX, FocusY] = $"██";
 
-            for (int i = 0; i < Column; i++)
+            for (int i = 0; i < (Line-1); i++)
             {
                 if (point[i].Flag == true)
                 {
@@ -185,13 +185,13 @@ namespace Modul2
 
         private void DownStep()
         {
-            for (int i = 0; i < Column; i++)
+            for (int i = 0; i < Line; i++)
             {
                 if (point[i].Flag == true)
                 {
                     ScreenArray[point[i].RandomX, point[i].RandomY] = "  ";
 
-                    if (point[i].RandomX == ScreenArray.GetLength(1) - 1)
+                    if (point[i].RandomX == ScreenArray.GetLength(0) - 1)
                     {
 
                         point[i].Flag = false;
@@ -207,7 +207,7 @@ namespace Modul2
 
         private bool ContactPoint()
         {
-            for (int i = 0; i < Column; i++)
+            for (int i = 0; i < Line; i++)
             {
                 if (point[i].Flag == true & FocusX == point[i].RandomX & FocusY == point[i].RandomY)
                 {
@@ -227,7 +227,7 @@ namespace Modul2
 
         private void AddPoint()
         {
-            for (int i = 0; i < Column; i++)
+            for (int i = 0; i < Line; i++)
             {
                 if (point[i].Flag == false)
                 {
